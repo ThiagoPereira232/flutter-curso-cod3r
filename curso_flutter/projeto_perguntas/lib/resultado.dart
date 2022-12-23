@@ -7,40 +7,42 @@ class Resultado extends StatelessWidget {
   const Resultado(this.pontuacao, this.reiniciarQuestionario, {super.key});
 
   String get fraseResultado {
-    if (pontuacao < 8) {
-      return 'Parabéns!';
-    } else if (pontuacao < 12) {
-      return 'Você é bom!';
-    } else if (pontuacao < 16) {
-      return 'Impressionante!';
+    if (pontuacao == 0) {
+      return 'Parabéns você errou todas!';
+    } else if (pontuacao == 10) {
+      return 'Impressionante, você acertou todas as perguntas!';
     } else {
-      return 'Nível Jedi!';
+      return 'Parabéns, você acertou $pontuacao';
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Center(
-          child: Text(
-            fraseResultado,
-            style: const TextStyle(
-              fontSize: 28,
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              fraseResultado,
+              style: const TextStyle(
+                fontSize: 28,
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
-        ),
-        TextButton(
-          onPressed: reiniciarQuestionario,
-          child: const Text(
-            'Reiniciar?',
-            style: TextStyle(
-              fontSize: 18,
-            )
-          ),
-        )
-      ],
+          TextButton(
+            onPressed: reiniciarQuestionario,
+            child: const Text(
+              'Reiniciar?',
+              style: TextStyle(
+                fontSize: 18,
+              )
+            ),
+          )
+        ],
+      ),
     );
   }
 }

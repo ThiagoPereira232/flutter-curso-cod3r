@@ -10,43 +10,101 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   final _perguntas = const [
     {
-      'pergunta': 'Qual é a sua cor favorita?',
+      'pergunta': 'Quanto é 1 + 1?',
       'respostas': [
-        {'texto': 'Preto', 'pontuacao': 10},
-        {'texto': 'Verde', 'pontuacao': 10},
-        {'texto': 'Roxo', 'pontuacao': 10},
-        {'texto': 'Branco', 'pontuacao': 1},
+        {'texto': '0', 'pontuacao': 0},
+        {'texto': '1', 'pontuacao': 0},
+        {'texto': '2', 'pontuacao': 1},
+        {'texto': '11', 'pontuacao': 0},
       ]
     },
     {
-      'pergunta': 'Qual é o seu animal favorito?',
+      'pergunta': 'Qual é o coletivo de cães?',
       'respostas': [
-        {'texto': 'Cobra', 'pontuacao': 10},
-        {'texto': 'Elefante', 'pontuacao': 10},
-        {'texto': 'Girafa', 'pontuacao': 10},
-        {'texto': 'Hipopótamo', 'pontuacao': 1},
+        {'texto': 'Matilha', 'pontuacao': 1},
+        {'texto': 'Rebanho', 'pontuacao': 0},
+        {'texto': 'Alcateia', 'pontuacao': 0},
+        {'texto': 'Manada', 'pontuacao': 0},
       ]
     },
     {
-      'pergunta': 'Você é?',
+      'pergunta':
+          'Seguindo a sequência do baralho, qual carta vem depois do 10?',
       'respostas': [
-        {'texto': 'Criança', 'pontuacao': 10},
-        {'texto': 'Adolescente', 'pontuacao': 10},
-        {'texto': 'Adulto', 'pontuacao': 10},
-        {'texto': 'Idoso', 'pontuacao': 1},
+        {'texto': 'Rei', 'pontuacao': 0},
+        {'texto': 'Valete', 'pontuacao': 1},
+        {'texto': 'Nove', 'pontuacao': 0},
+        {'texto': 'Dama', 'pontuacao': 0},
+        {'texto': 'Ás', 'pontuacao': 0},
       ]
     },
     {
-      'pergunta': 'Você mora em?',
+      'pergunta': 'Quingentésimo corresponde a qual número?',
       'respostas': [
-        {'texto': 'Casa', 'pontuacao': 10},
-        {'texto': 'Apartamento', 'pontuacao': 10},
-        {'texto': 'Sobradinho', 'pontuacao': 10},
-        {'texto': 'Sobradão', 'pontuacao': 10},
-        {'texto': 'Condominho', 'pontuacao': 10},
-        {'texto': 'Mansão', 'pontuacao': 1},
+        {'texto': '5', 'pontuacao': 0},
+        {'texto': '50', 'pontuacao': 0},
+        {'texto': '500', 'pontuacao': 1},
+        {'texto': '5000', 'pontuacao': 0},
+        {'texto': '50000', 'pontuacao': 0},
+        {'texto': '500000', 'pontuacao': 0},
       ],
-    }
+    },
+    {
+      'pergunta': 'Que país da Europa é conhecido como países baixos?',
+      'respostas': [
+        {'texto': 'Holanda', 'pontuacao': 1},
+        {'texto': 'Áustria', 'pontuacao': 0},
+        {'texto': 'Bélgica', 'pontuacao': 0},
+        {'texto': 'Huncgria', 'pontuacao': 0},
+      ]
+    },
+    {
+      'pergunta': 'O que é Via Láctea?',
+      'respostas': [
+        {'texto': 'Marca de leite', 'pontuacao': 0},
+        {'texto': 'Civilização antiga', 'pontuacao': 0},
+        {'texto': 'Carro', 'pontuacao': 0},
+        {'texto': 'Galáxia', 'pontuacao': 1},
+      ]
+    },
+    {
+      'pergunta': 'Qual desses paises não é da América do Sul?',
+      'respostas': [
+        {'texto': 'Equador', 'pontuacao': 0},
+        {'texto': 'Chile', 'pontuacao': 0},
+        {'texto': 'Suriname', 'pontuacao': 0},
+        {'texto': 'Panamá', 'pontuacao': 1},
+        {'texto': 'Guiana Francesa', 'pontuacao': 0},
+      ]
+    },
+    {
+      'pergunta': 'Qual animal é conhecido como papa formiga?',
+      'respostas': [
+        {'texto': 'Tamanduá', 'pontuacao': 1},
+        {'texto': 'Tatu', 'pontuacao': 0},
+        {'texto': 'Gamba', 'pontuacao': 0},
+        {'texto': 'Avestruz', 'pontuacao': 0},
+      ]
+    },
+    {
+      'pergunta': 'Qual desses aparelhos domésticos consome mais energia?',
+      'respostas': [
+        {'texto': 'Rádio', 'pontuacao': 0},
+        {'texto': 'Liquidificador', 'pontuacao': 0},
+        {'texto': 'Batedeira', 'pontuacao': 0},
+        {'texto': 'Chuveiro', 'pontuacao': 1},
+      ]
+    },
+    {
+      'pergunta':
+          'Qual destes monumentos não é uma das 7 maravilhas do mundo moderno?',
+      'respostas': [
+        {'texto': 'Coliseu de Roma', 'pontuacao': 0},
+        {'texto': 'Cristo Redentor', 'pontuacao': 0},
+        {'texto': 'Muralha da China', 'pontuacao': 0},
+        {'texto': 'Farol de Alexandria', 'pontuacao': 1},
+      ]
+    },
   ];
 
   void _responder(int pontuacao) {
@@ -58,7 +116,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   }
 
-  void _reiniciarQuestionario(){
+  void _reiniciarQuestionario() {
     setState(() {
       _perguntaSelecionada = 0;
       _pontuacaoTotal = 0;
@@ -78,6 +136,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
     // }
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Perguntas"),
