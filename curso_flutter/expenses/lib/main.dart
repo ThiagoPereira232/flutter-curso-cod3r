@@ -16,7 +16,7 @@ class ExpensesApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
-  
+
   final _transaction = [
     Transaction(
       id: 't1',
@@ -42,15 +42,42 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            child: const Card(
-              color: Colors.blue,
-              elevation: 5,
-              child: Text("Grafico"),
-            ),
+          const Card(
+            color: Colors.blue,
+            elevation: 5,
+            child: Text("Grafico"),
           ),
-          Card(
-            child: Text("lista de transações"),
+          Column(
+            children: _transaction.map((tr) {
+              return Card(
+                child: Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        tr.value.toString(),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        Text(tr.title),
+                        Text(tr.date.toString()),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
           )
         ],
       ),
